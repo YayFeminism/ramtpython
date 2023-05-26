@@ -26,12 +26,10 @@ def check_URLDownloadToFile(url, file_name):
     _url_downloads += 1
     current_time = time.time()
 
-    if current_time - _last_create_process <= TIME_THRESHOLD:
-        # Возможная атака, отправляем алерт
-        from alert_handler import add_alert
-        print("Sending alert from check_URLDownloadToFile")  # Добавлен вызов print
-        add_alert(f"Подозрительная активность: URLDownloadToFile (URL: {url}, File: {file_name})")
-        return False
+    # Атака определена, отправляем алерт
+    from alert_handler import add_alert
+    print("Sending alert from check_URLDownloadToFile")  # Добавлен вызов print
+    add_alert(f"Подозрительная активность: URLDownloadToFile (URL: {url}, File: {file_name})")
 
     _last_url_download = current_time
 
@@ -46,12 +44,10 @@ def check_CreateProcessA(application_name, command_line):
     _create_processes += 1
     current_time = time.time()
 
-    if current_time - _last_url_download <= TIME_THRESHOLD:
-        # Возможная атака, отправляем алерт
-        from alert_handler import add_alert
-        print("Sending alert from check_CreateProcessA")  # Добавлен вызов print
-        add_alert(f"Подозрительная активность: CreateProcessA (Application: {application_name}, Command Line: {command_line})")
-        return False
+    # Атака определена, отправляем алерт
+    from alert_handler import add_alert
+    print("Sending alert from check_CreateProcessA")  # Добавлен вызов print
+    add_alert(f"Подозрительная активность: CreateProcessA (Application: {application_name}, Command Line: {command_line})")
 
     _last_create_process = current_time
 

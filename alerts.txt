@@ -1,0 +1,2 @@
+20/05/2023, 10:04:28 - Подозрительная активность: URLDownloadToFile (URL: https://www.example.com/, File: example.html)
+20/05/2023, 10:04:28 - Подозрительная активность: CreateProcessA (Application: None, Command Line: b'example.html --silent')

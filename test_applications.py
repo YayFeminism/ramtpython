@@ -3,7 +3,7 @@ import time
 import random
 import ctypes
 import sys
-import importlib
+# import importlib3
 import Pyro5.api
 import detours_wrapper  # Добавлен импорт detours_wrapper
 
@@ -44,7 +44,7 @@ def imitate_application_behavior(app_name, malicious=False):
         rasp_app = Pyro5.api.Proxy("PYRONAME:rasp_app")
 
         # Вызов функций, определенных в main.py
-        rasp_app.on_update_calls_stats(1, 0)
+        rasp_app.on_update_calls_stats(1, 1)
 
 if __name__ == "__main__":
     # Тестирование с простой консольной программой
